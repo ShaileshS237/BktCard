@@ -2,9 +2,22 @@
   "data": [
     {
       "name": "Education",
-      "cards": [],
+      "cards": [
+        {
+          "id": 2,
+          "name": "Ant Man",
+          "videoLink": "https://www.youtube.com/watch?v=ZQ7y-hH7auE&list=PLinVjP-aRmlt_quYc4rLnuETkfTpglIOE"
+        }
+      ],
       "id": 1
     }
   ],
-  "history": []
+  "history": [
+    {
+      "name": "Ant Man",
+      "Bucket": "Education",
+      "time": "1/11/2023, 10:48:41 PM",
+      "id": 1
+    }
+  ]
 }

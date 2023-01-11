@@ -289,18 +289,17 @@ const Cards = (props) => {
 				temp +
 				"' width='100%' heeight='500px' allowscriptaccess='always' frameborder='0' />"
 		);
-		// let time = new Date().toLocaleString();
+		let time = new Date().toLocaleString();
 
-		// await axios
-		// 	.post("http://localhost:8000/history", {
-		// 		name: card.name,
-		// 		Bucket: props.bname,
-		// 		time: time,
-		// 	})
-		// 	.then((val) => {
-
-		// 		setIsModalOpen(true);
-		// 	});
+		await axios
+			.post("http://localhost:8000/history", {
+				name: card.name,
+				Bucket: props.bname,
+				time: time,
+			})
+			.then((val) => {
+				setIsModalOpen(true);
+			});
 	};
 
 	// const content = showSwapModal();
