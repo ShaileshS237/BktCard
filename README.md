@@ -2,10 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Please download the DATA folder on your local machine an run the command
-npx json-server --watch data/db.json --port 8000
-
-It will start the json-server
+- Important : Please download the DATA folder on your local machine an run the command
+- npx json-server --watch data/db.json --port 8000
+-It will start the json-server
 
 
 ## Available Scripts
