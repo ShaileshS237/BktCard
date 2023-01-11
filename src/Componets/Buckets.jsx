@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Col, Row } from "antd";
+import { Button, Col, Empty, Row } from "antd";
 import { Card, Divider } from "antd";
 import Cards from "./Cards";
 import { FolderAddOutlined } from "@ant-design/icons";
@@ -18,7 +18,7 @@ const Buckets = () => {
 		});
 	}, []);
 
-	return (
+	return bucket.length >= 1 ? (
 		<Row gutter={16}>
 			{bucket.map((bucket) => (
 				<Col className="gutter-row" span={8} key={bucket.id}>
@@ -29,6 +29,18 @@ const Buckets = () => {
 				</Col>
 			))}
 		</Row>
+	) : (
+		<div style={{ display: "flex", justifyContent: "center" }}>
+			<Empty
+				image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+				imageStyle={{
+					height: 200,
+				}}
+				description={<span>Oops, No Bucket Found</span>}
+			>
+				{/* <Button type="primary">Create One</Button> */}
+			</Empty>
+		</div>
 	);
 };
 

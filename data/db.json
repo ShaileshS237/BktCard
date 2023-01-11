@@ -4,78 +4,7 @@
       "name": "Education",
       "cards": [],
       "id": 1
-    },
-    {
-      "name": "New Movies",
-      "cards": [
-        {
-          "id": 1,
-          "name": "Yeh Dil Deewana | Deewana Haan Hai Yeh Dil | Shah Rukh Khan | Sonu Nigam | Hema | Shankar | Pardes",
-          "videoLink": "https://www.youtube.com/watch?v=NxVFZ8aF-_g"
-        }
-      ],
-      "id": 2
-    },
-    {
-      "name": "Education",
-      "cards": [],
-      "id": 3
     }
   ],
-  "history": [
-    {
-      "name": "Ant man",
-      "Bucket": "New Movies",
-      "time": "1/11/2023, 6:57:54 PM",
-      "id": 1
-    },
-    {
-      "name": "Apna Bana Le - Bhediya",
-      "Bucket": "Education",
-      "time": "1/11/2023, 7:21:40 PM",
-      "id": 2
-    },
-    {
-      "name": "Apna Bana Le - Bhediya",
-      "Bucket": "Education",
-      "time": "1/11/2023, 7:21:50 PM",
-      "id": 3
-    },
-    {
-      "name": "Apna Bana Le - Bhediya",
-      "Bucket": "Education",
-      "time": "1/11/2023, 7:25:21 PM",
-      "id": 4
-    },
-    {
-      "name": "Apna Bana Le - Bhediya",
-      "Bucket": "Education",
-      "time": "1/11/2023, 7:26:44 PM",
-      "id": 5
-    },
-    {
-      "name": "Apna Bana Le - Bhediya",
-      "Bucket": "Education",
-      "time": "1/11/2023, 7:29:08 PM",
-      "id": 6
-    },
-    {
-      "name": "Apna Bana Le - Bhediya",
-      "Bucket": "Education",
-      "time": "1/11/2023, 7:29:22 PM",
-      "id": 7
-    },
-    {
-      "name": "Apna Bana Le - Bhediya",
-      "Bucket": "Education",
-      "time": "1/11/2023, 8:28:30 PM",
-      "id": 8
-    },
-    {
-      "name": "Ant man",
-      "Bucket": "New Movies",
-      "time": "1/11/2023, 8:28:35 PM",
-      "id": 9
-    }
-  ]
+  "history": []
 }

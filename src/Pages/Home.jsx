@@ -28,17 +28,6 @@ export const Home = () => {
 	return (
 		<>
 			<Navbar />
-			<Alert
-				style={{ margin: "0 1%" }}
-				type="error"
-				message={
-					<Marquee pauseOnHover gradient={false} speed="60">
-						Bug Reported : 1 . After transferring the card to a different
-						bucket. It moves but the component doesn't retrieve the updated
-						data; after a manual refresh, the updated data is retrieved.
-					</Marquee>
-				}
-			/>
 
 			{/* Bug Reported : After moving the card into another bucket. It gets moved but componet didnt fetch the updated data, After manual refresh it gets updated */}
 			<Modal
@@ -59,19 +48,27 @@ export const Home = () => {
 				}}
 			>
 				<Buckets />
-			</div>
 
-			{/* <Empty
-				image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
-				imageStyle={{
-					height: 200,
-				}}
-				description={<span>Oops, No Bucket Found</span>}
-			>
-				<Button onClick={showModal} type="primary">
-					Create One
-				</Button>
-			</Empty> */}
+				<div className="footer">
+					<Alert
+						style={{ margin: "0 1% 13px" }}
+						type="error"
+						message={
+							<div>
+								<b>
+									Bug Reported (Working On) <br /> 1:
+								</b>{" "}
+								After transferring the card to a different bucket. It moves but
+								the component doesn't retrieve the updated data; after a manual
+								refresh, the updated data is retrieved.&nbsp;
+								<br />
+								<b>2: </b>Same problem with add bucket button, component doesn't
+								refresh, Manual refresh required.
+							</div>
+						}
+					/>
+				</div>
+			</div>
 		</>
 	);
 };
