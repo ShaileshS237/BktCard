@@ -1,50 +1,54 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../Componets/Navbar";
-import axios from "axios";
 import { Divider, Card, Row, Col } from "antd";
+import { getHistory as readHistory, subscribe } from "../services/storage";
+
 const History = () => {
-	const [history, setHistory] = useState([]);
+  const [history, setHistory] = useState([]);
 
-	const getHistory = async () => {
-		await axios.get("http://localhost:8000/history").then((val) => {
-			setHistory(val.data);
-		});
-	};
+  const load = () => {
+    setHistory(readHistory());
+  };
 
-	useEffect(() => {
-		getHistory();
-	}, []);
+  useEffect(() => {
+    load();
+    const unsub = subscribe(() => load());
+    return unsub;
+  }, []);
 
-	return (
-		<div>
-			<Navbar />
+  return (
+    <div>
+      <Navbar />
 
-			<Divider orientation="left" plain>
-				Watch History
-			</Divider>
+      <Divider orientation="left" plain>
+        Watch History
+      </Divider>
 
-			<div>
-				<Row>
-					{history.map((val) => (
-						<Col
-							className="gutter-row"
-							xs={{ span: 8, offset: 3 }}
-							lg={{ span: 4, offset: 1 }}
-						>
-							<Card
-								style={{ marginBottom: "25px", height: "95%" }}
-								type="inner"
-								title={"Bucket : " + val.Bucket}
-							>
-								<p>Title : {val.name}</p>
-								<p>Date & Time : {val.time}</p>
-							</Card>
-						</Col>
-					))}
-				</Row>
-			</div>
-		</div>
-	);
+      <div>
+        <Row gutter={[16, 16]}>
+          {history.map((val) => (
+            <Col
+              className="gutter-row"
+              xs={24}
+              sm={12}
+              md={8}
+              lg={6}
+              key={val.id || val.time}
+            >
+              <Card
+                style={{ marginBottom: "25px", height: "95%" }}
+                type="inner"
+                title={"Bucket : " + val.Bucket}
+              >
+                <p>Title : {val.name}</p>
+                <p>Date & Time : {val.time}</p>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </div>
+    </div>
+  );
 };
 
 export default History;

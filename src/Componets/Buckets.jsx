@@ -1,47 +1,61 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { Button, Col, Empty, Row } from "antd";
-import { Card, Divider } from "antd";
+import { Col, Empty, Row, Divider, Popconfirm, message, Button } from "antd";
+import { DeleteOutlined } from "@ant-design/icons";
 import Cards from "./Cards";
-import { FolderAddOutlined } from "@ant-design/icons";
+import { getBuckets, subscribe, deleteBucket } from "../services/storage";
+
 const Buckets = () => {
-	let newData = [];
-	const [bucket, setBucket] = React.useState([]);
-	const [allBucket, setAllBucket] = useState([]);
-	useEffect(() => {
-		axios.get("http://localhost:8000/data").then((val) => {
-			setBucket(val.data);
-			console.log(val.data);
+  const [buckets, setBuckets] = useState([]);
 
-			setAllBucket(newData);
-			console.log(newData);
-		});
-	}, []);
+  const load = () => {
+    setBuckets(getBuckets());
+  };
 
-	return bucket.length >= 1 ? (
-		<Row gutter={16}>
-			{bucket.map((bucket) => (
-				<Col className="gutter-row" span={8} key={bucket.id}>
-					<Divider orientation="left" style={{ color: "#6699ff" }}>
-						{bucket.name}
-					</Divider>
-					<Cards cid={bucket.id} bname={bucket.name} newdata={newData} />
-				</Col>
-			))}
-		</Row>
-	) : (
-		<div style={{ display: "flex", justifyContent: "center" }}>
-			<Empty
-				image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
-				imageStyle={{
-					height: 200,
-				}}
-				description={<span>Oops, No Bucket Found</span>}
-			>
-				{/* <Button type="primary">Create One</Button> */}
-			</Empty>
-		</div>
-	);
+  useEffect(() => {
+    load();
+    const unsub = subscribe(() => load());
+    return unsub;
+  }, []);
+
+  const handleDeleteBucket = (id) => {
+    deleteBucket(id);
+    message.success("Bucket deleted");
+  };
+
+  return buckets.length >= 1 ? (
+    <Row gutter={[16, 16]}>
+      {buckets.map((bucket) => (
+        <Col className="gutter-row" xs={24} sm={12} md={8} key={bucket.id}>
+          <Divider orientation="left" style={{ color: "#6699ff" }}>
+            {bucket.name}
+          </Divider>
+          <Cards cid={bucket.id} bname={bucket.name} />
+          <div style={{ display: "flex", justifyContent: "center", marginTop: 8 }}>
+            <Popconfirm
+              title="Delete this bucket?"
+              description="This will remove the bucket and all its cards."
+              onConfirm={() => handleDeleteBucket(bucket.id)}
+              okText="Delete"
+              cancelText="Cancel"
+            >
+              <Button type="primary" danger icon={<DeleteOutlined />}>Delete Bucket</Button>
+            </Popconfirm>
+          </div>
+        </Col>
+      ))}
+    </Row>
+  ) : (
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      <Empty
+        image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+        imageStyle={{
+          height: 200,
+        }}
+        description={<span>Oops, No Bucket Found</span>}
+      >
+      </Empty>
+    </div>
+  );
 };
 
 export default Buckets;

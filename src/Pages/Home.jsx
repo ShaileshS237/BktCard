@@ -39,35 +39,8 @@ export const Home = () => {
 			>
 				<Input placeholder="Name of Bucket" />
 			</Modal>
-			<div
-				style={{
-					margin: "22px",
-					background: "white",
-					padding: "10px 20px 40px",
-					borderRadius: "10px",
-				}}
-			>
+			<div className="content-wrapper">
 				<Buckets />
-
-				<div className="footer">
-					<Alert
-						style={{ margin: "0 1% 13px" }}
-						type="error"
-						message={
-							<div>
-								<b>
-									Bug Reported (Working On) <br /> 1:
-								</b>{" "}
-								After transferring the card to a different bucket. It moves but
-								the component doesn't retrieve the updated data; after a manual
-								refresh, the updated data is retrieved.&nbsp;
-								<br />
-								<b>2: </b>Same problem with add bucket button, component doesn't
-								refresh, Manual refresh required.
-							</div>
-						}
-					/>
-				</div>
 			</div>
 		</>
 	);
