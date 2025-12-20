@@ -39,7 +39,7 @@ const Cards = (props) => {
   const [isSwapModalOpen, setIsSwapModalOpen] = useState(false);
   const [optionData, setOptionData] = useState([]);
   const [selectedBucket, setSelBucket] = useState("");
-  const [updateData, setUpdateData] = useState([]);
+  // const [updateData, setUpdateData] = useState([]); // Removed unused state
   const [cid, setCID] = useState(); // card id for swap
   const [showError, setShowError] = useState(false);
   const { Option } = Select;
@@ -86,11 +86,11 @@ const Cards = (props) => {
     message.success("Deleted");
   };
 
-  const cancel = () => {};
+  const cancel = () => { };
 
   const getBucket = () => {
     const all = getBuckets();
-    setUpdateData(all);
+    // setUpdateData(all); // Removed unused setter
     setOptionData(all);
   };
 

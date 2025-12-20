@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Button, Space, Modal, Input, message } from "antd";
 import "../App.css";
-import { HomeOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { addBucket } from "../services/storage";
 
