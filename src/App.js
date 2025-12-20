@@ -3,14 +3,18 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
 import { ConfigProvider, theme } from "antd";
 
+import { useTheme } from "./context/ThemeContext";
+
 function App() {
+	const { theme: currentTheme } = useTheme();
+
 	return (
 		<ConfigProvider
 			theme={{
-				algorithm: theme.darkAlgorithm,
+				algorithm: currentTheme === 'dark' ? theme.darkAlgorithm : theme.defaultAlgorithm,
 				token: {
-					colorBgBase: "#0f0f0f",
-					colorTextBase: "#e6e6e6",
+					colorBgBase: currentTheme === 'dark' ? "#0f0f0f" : "#f0f2f5",
+					colorTextBase: currentTheme === 'dark' ? "#e6e6e6" : "#000000",
 				},
 			}}
 		>

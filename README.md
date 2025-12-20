@@ -1,4 +1,4 @@
-## BktCard
+## MemoBucket
 
 A small React app (created with Create React App) for managing bucket-style cards. The app was hosted as a demo at: https://dashing-biscochitos-0c9acc.netlify.app/
 
@@ -8,6 +8,23 @@ This README focuses on the practical setup and run steps for local development.
 
 - Live demo: https://dashing-biscochitos-0c9acc.netlify.app/
 - Source: this repository
+
+## Key Concepts & Workflow
+
+### What is a Bucket?
+A **Bucket** is a container for organizing related tasks or ideas. Think of it as a category or a folder. For example, you might create buckets named "Work", "Personal", "Movies to Watch", or "Grocery List".
+
+### What is a Card?
+A **Card** represents a single item or task within a specific Bucket. It contains a title and a description. Cards are the actionable items you want to track.
+- **Example**: In a "Movies" bucket, you might have cards for "Inception", "The Matrix", etc.
+
+### Workflow
+1.  **Create a Bucket**: Start by clicking "Add Bucket" to create a new category.
+2.  **Add Cards**: Inside a bucket, click "Add New" or "Create One" to add a new card.
+3.  **Manage Cards**:
+    -   **Edit**: Update the name or description of a card using the edit icon.
+    -   **Delete**: Remove a card when it's no longer needed.
+    -   **Move**: Easily move a card from one bucket to another using the swap icon (e.g., move a task from "To Do" to "Done").
 
 ## Requirements
 

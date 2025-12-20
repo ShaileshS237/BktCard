@@ -4,7 +4,11 @@ import "../App.css";
 import { Link } from "react-router-dom";
 import { addBucket } from "../services/storage";
 
+import { BulbFilled, BulbOutlined } from "@ant-design/icons";
+import { useTheme } from "../context/ThemeContext";
+
 export const Navbar = ({ fn }) => {
+  const { theme: currentTheme, toggleTheme } = useTheme();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [bucketname, setBucketName] = useState("");
 
@@ -55,13 +59,22 @@ export const Navbar = ({ fn }) => {
           <Link to="/">
             <img
               className="nav-logo"
-              src="/bktcard_logo.png"
-              alt="BktCard logo"
+              src="/memobucket_logo.png"
+              alt="MemoBucket logo"
             />
           </Link>
         </div>
         <div style={{ margin: "20px 0 20px 0" }}>
           <Space wrap className="nav-actions" style={{ width: "100%" }}>
+            <Button
+              className="full-width-sm"
+              size={"large"}
+              type="default"
+              icon={currentTheme === 'dark' ? <BulbFilled /> : <BulbOutlined />}
+              onClick={toggleTheme}
+            >
+              {currentTheme === 'dark' ? 'Light Mode' : 'Dark Mode'}
+            </Button>
             <Button className="full-width-sm" size={"large"} type="primary" onClick={showModal}>
               Add Bucket
             </Button>

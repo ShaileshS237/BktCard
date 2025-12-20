@@ -1,18 +1,18 @@
 .nav-bar {
   display: flex;
-	flex-direction: column;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
 
 }
 
 .footer {
-	position: fixed;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	color: white;
-	text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
 }
 
 /* Responsive: Navbar layout on larger screens */
@@ -28,6 +28,7 @@
   height: 72px;
   margin-top: 16px;
 }
+
 @media (min-width: 768px) {
   .nav-logo {
     height: 100px;
@@ -35,25 +36,34 @@
   }
 }
 
+/* Invert logo color in light mode */
+body.light .nav-logo {
+  filter: invert(1);
+}
+
 /* Content container */
 .content-wrapper {
   margin: 22px;
-  background: #141414;
+  background: var(--card-bg);
   padding: 10px 20px 40px;
   border-radius: 10px;
-  border: 1px solid #303030;
+  border: 1px solid var(--card-border);
+  transition: background 0.3s, border-color 0.3s;
 }
 
 /* Small screens adjustments */
 @media (max-width: 576px) {
   .content-wrapper {
     margin: 10px;
-    padding: 12px 12px 80px; /* space for footer */
+    padding: 12px 12px 80px;
+    /* space for footer */
   }
+
   .footer {
     position: static;
     margin-top: 12px;
   }
+
   .full-width-sm {
     width: 100%;
   }
@@ -65,9 +75,11 @@
     display: block;
     width: 100%;
   }
+
   .nav-actions .ant-btn {
     width: 100%;
   }
+
   .nav-bar {
     gap: 12px;
   }
